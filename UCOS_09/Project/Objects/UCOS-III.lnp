@@ -1,0 +1,18 @@
+--cpu Cortex-M3
+".\objects\app.o"
+".\objects\os_core.o"
+".\objects\os_cfg_app.o"
+".\objects\os_task.o"
+".\objects\os_time.o"
+".\objects\os_var.o"
+".\objects\os_prio.o"
+".\objects\os_cpu_a.o"
+".\objects\os_cpu_c.o"
+".\objects\cpu_a.o"
+".\objects\cpu_core.o"
+".\objects\startup_armcm3.o"
+".\objects\system_armcm3.o"
+--strict --scatter ".\Objects\UCOS-III.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\UCOS-III.map" -o .\Objects\UCOS-III.axf

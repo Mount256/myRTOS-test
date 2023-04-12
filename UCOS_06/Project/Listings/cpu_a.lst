@@ -1,0 +1,113 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 EXPORT           CPU_IntDis
+    2 00000000                 EXPORT           CPU_IntEn
+    3 00000000         
+    4 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    5 00000000                 THUMB
+    6 00000000                 REQUIRE8
+    7 00000000                 PRESERVE8
+    8 00000000         
+    9 00000000         ;*******************************************************
+                       *************************************************
+   10 00000000         ;                                    Ê§ÄÜ/Ê¹ÄÜÖÐ¶Ï
+   11 00000000         ;*******************************************************
+                       *************************************************
+   12 00000000         
+   13 00000000         ; void  CPU_IntDis  (void);
+   14 00000000         CPU_IntDis                           ; Ê§ÄÜÖÐ¶Ï
+   15 00000000 B672            CPSID            I           ; ¹ØÖÐ¶Ï
+   16 00000002 4770            BX               LR
+   17 00000004         
+   18 00000004         ; void  CPU_IntEn  (void);
+   19 00000004         CPU_IntEn                            ; Ê¹ÄÜÖÐ¶Ï
+   20 00000004 B662            CPSIE            I           ; ¿ªÖÐ¶Ï
+   21 00000006 4770            BX               LR
+   22 00000008         
+   23 00000008         ;*******************************************************
+                       *************************************************
+   24 00000008         ;                                      ÁÙ½ç¶Î¿ªÆô/¹Ø±ÕÖÐ
+                       ¶Ï
+   25 00000008         ;
+   26 00000008         ;   PRIMASK ÊÇ¸öÖ»ÓÐµ¥Ò»±ÈÌØµÄ¼Ä´æÆ÷¡£ÔÚËü±»ÖÃ 1 ºó£¬¾Í¹
+                       ØµôËùÓÐ¿ÉÆÁ±ÎµÄÒì³££¬Ö»Ê£ÏÂ NMI ºÍ
+   27 00000008         ;   Ó²¼þ FAULT ¿ÉÒÔÏìÓ¦¡£ËüµÄÄ¬ÈÏÖµÊÇ 0£¬±íÊ¾Ã»ÓÐ¹ØÖÐ¶Ï¡
+                       £
+   28 00000008         ;*******************************************************
+                       *************************************************
+   29 00000008         
+   30 00000008         ; CPU_SR  CPU_SR_Save (void);  £¨ÁÙ½ç¶Î¹ØÖÐ¶Ï£¬R0 Îª·µ»Ø
+                       Öµ£©
+   31 00000008         CPU_SR_Save
+   32 00000008 F3EF 8010       MRS              R0, PRIMASK ; ½« PRIMASK ¼Ä´æÆ÷
+                                                            µÄÖµ´æÈë R0 ÖÐ
+   33 0000000C B672            CPSID            I           ; ¹ØÖÐ¶Ï
+   34 0000000E 4770            BX               LR
+   35 00000010         
+   36 00000010         ; void CPU_SR_Restore (CPU_SR  cpu_sr);   £¨ÁÙ½ç¶Î¿ªÖÐ¶Ï
+                       £¬R0 ÎªÐÎ²Î£©
+   37 00000010         CPU_SR_Restore
+   38 00000010 F380 8810       MSR              PRIMASK, R0 ; ½« R0 µÄÖµ´æÈë PR
+                                                            IMASK ¼Ä´æÆ÷ÖÐ
+   39 00000014 4770            BX               LR
+   40 00000016         
+   41 00000016                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\cpu_a.d -o.\objects\cpu_a.o -IE:\UCOS-LEARN\UCOS_06\Proj
+ect\RTE -ID:\MDK5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -ID:\MDK5\ARM\PACK\ARM
+\CMSIS\4.2.0\Device\ARM\ARMCM3\Include --predefine="__UVISION_VERSION SETA 514"
+ --predefine="_RTE_ SETA 1" --predefine="ARMCM3 SETA 1" --list=.\listings\cpu_a
+.lst ..\User\uC-CPU\cpu_a.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 4 in file ..\User\uC-CPU\cpu_a.asm
+   Uses
+      None
+Comment: .text unused
+CPU_IntDis 00000000
+
+Symbol: CPU_IntDis
+   Definitions
+      At line 14 in file ..\User\uC-CPU\cpu_a.asm
+   Uses
+      At line 1 in file ..\User\uC-CPU\cpu_a.asm
+Comment: CPU_IntDis used once
+CPU_IntEn 00000004
+
+Symbol: CPU_IntEn
+   Definitions
+      At line 19 in file ..\User\uC-CPU\cpu_a.asm
+   Uses
+      At line 2 in file ..\User\uC-CPU\cpu_a.asm
+Comment: CPU_IntEn used once
+CPU_SR_Restore 00000010
+
+Symbol: CPU_SR_Restore
+   Definitions
+      At line 37 in file ..\User\uC-CPU\cpu_a.asm
+   Uses
+      None
+Comment: CPU_SR_Restore unused
+CPU_SR_Save 00000008
+
+Symbol: CPU_SR_Save
+   Definitions
+      At line 31 in file ..\User\uC-CPU\cpu_a.asm
+   Uses
+      None
+Comment: CPU_SR_Save unused
+5 symbols
+338 symbols in table

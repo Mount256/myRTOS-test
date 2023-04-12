@@ -1,0 +1,61 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 AREA             |.text|, CODE, READONLY, ALIGN=
+2
+    3 00000000                 THUMB
+    4 00000000                 REQUIRE8
+    5 00000000                 PRESERVE8
+    6 00000000         
+    7 00000000         CPU_IntDis
+    8 00000000 B672            CPSID            I           ; 关中断
+    9 00000002 4770            BX               LR
+   10 00000004         
+   11 00000004         CPU_IntEn
+   12 00000004 B662            CPSIE            I           ; 开中断
+   13 00000006 4770            BX               LR
+   14 00000008         
+   15 00000008         
+   16 00000008                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\objects\os_cpu_a_1.d -o.\objects\os_cpu_a_1.o -IE:\UCOS-LEARN\UC
+OS_03\Project\RTE -ID:\MDK5\ARM\PACK\ARM\CMSIS\4.2.0\CMSIS\Include -ID:\MDK5\AR
+M\PACK\ARM\CMSIS\4.2.0\Device\ARM\ARMCM3\Include --predefine="__UVISION_VERSION
+ SETA 514" --predefine="_RTE_ SETA 1" --predefine="ARMCM3 SETA 1" --list=.\list
+ings\os_cpu_a.lst ..\User\uC-CPU\os_cpu_a.asm
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 2 in file ..\User\uC-CPU\os_cpu_a.asm
+   Uses
+      None
+Comment: .text unused
+CPU_IntDis 00000000
+
+Symbol: CPU_IntDis
+   Definitions
+      At line 7 in file ..\User\uC-CPU\os_cpu_a.asm
+   Uses
+      None
+Comment: CPU_IntDis unused
+CPU_IntEn 00000004
+
+Symbol: CPU_IntEn
+   Definitions
+      At line 11 in file ..\User\uC-CPU\os_cpu_a.asm
+   Uses
+      None
+Comment: CPU_IntEn unused
+3 symbols
+336 symbols in table

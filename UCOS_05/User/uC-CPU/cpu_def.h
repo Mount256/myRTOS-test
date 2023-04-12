@@ -1,0 +1,9 @@
+#ifndef CPU_CFG_MODULE_PRESENT
+#define CPU_CFG_MODULE_PRESENT
+
+#define CPU_WORD_SIZE_08		1u
+#define CPU_WORD_SIZE_16		2u
+#define CPU_WORD_SIZE_32		4u
+#define CPU_WORD_SIZE_64		8u
+
+#endif /* CPU_CFG_MODULE_PRESENT */
